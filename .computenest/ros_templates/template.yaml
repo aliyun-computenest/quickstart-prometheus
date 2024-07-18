@@ -115,22 +115,12 @@ Resources:
       VpcId:
         Ref: VpcId
       SecurityGroupIngress:
-        - PortRange: 8080/8080
+        - PortRange: 3000/3000
           Priority: 1
           SourceCidrIp: 0.0.0.0/0
           IpProtocol: tcp
           NicType: internet
         - PortRange: 9090/9090
-          Priority: 1
-          SourceCidrIp: 0.0.0.0/0
-          IpProtocol: tcp
-          NicType: internet
-        - PortRange: 8080/8080
-          Priority: 1
-          SourceCidrIp: 0.0.0.0/0
-          IpProtocol: tcp
-          NicType: internet
-        - PortRange: 8080/8080
           Priority: 1
           SourceCidrIp: 0.0.0.0/0
           IpProtocol: tcp
@@ -197,8 +187,7 @@ Resources:
 
             yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
             yum makecache fast
-            yum install -y git
-            yum -y install docker-ce jq
+            yum install -y git docker-ce jq
             systemctl enable docker
             systemctl start docker
       
@@ -206,7 +195,6 @@ Resources:
             git clone https://github.com/aliyun-computenest/quickstart-prometheus
             cd quickstart-prometheus
             docker compose up -d
-            sleep 300
             
             ARGUS_VERSION=3.5.7 /bin/bash -c "$(curl -sS https://cms-agent-${RegionId}.oss-${RegionId}-internal.aliyuncs.com/Argus/agent_install_ecs-1.7.sh)" >> /root/install_cms_agent.log 2>&1
           - RegionId:
