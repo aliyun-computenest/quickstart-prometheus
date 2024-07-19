@@ -3,7 +3,7 @@ Service:
   DeployType: ros
   DeployMetadata:
     ServiceInstanceNameRule:
-      Prefix: prometheus
+      Prefix: prometheus-
     TemplateConfigs:
       - Name: 单机版
         Url: 'ros_templates/template.yaml'
@@ -40,5 +40,5 @@ Service:
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
-    ShortDescription: prometheus deploy
-    Image: 'resources/icons/service_logo.png'
+    ShortDescription: Prometheus 是一个开源的系统监控和报警系统，最初由 SoundCloud 开发，并在 2012 年作为开源项目发布。它现在是 Cloud Native Computing Foundation（CNCF）的一部分，与 Kubernetes 等其他知名项目一起，成为云原生生态系统的重要组成部分。
+    Image: 'resources/icons/prometheus.jpg'
